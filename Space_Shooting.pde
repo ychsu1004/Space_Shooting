@@ -48,7 +48,7 @@ void build_ship(int a) {
 
   image(ship1Img, px[a] + sx[a], py[a], 80, 80);
 
-  circle(px[a] + sx[a] + 40, py[a] + bs[a] + 40, 10); //sx[] random apper(應該要有負數),bs[] speed
+  ellipse(px[a] + sx[a] + 40, py[a] + bs[a] + 40, 10, 10); //sx[] random apper(應該要有負數),bs[] speed
   if ((py[a] + bs[a] + 20) > 560) {
     bs[a] = 0;
   } else {
@@ -75,9 +75,9 @@ void hit_enemy_ship(int a) {
 
 void setup() {
   size(500, 600);
-  img = loadImage("space.jpg");
-  shipImg = loadImage("ship.png");
-  ship1Img = loadImage("ship1.png");
+  img = loadImage("data/space.jpg");
+  shipImg = loadImage("data/ship.png");
+  ship1Img = loadImage("data/ship1.png");
   for (int i = 0; i < 10; i++) {
     px[i] = (int)random(250);
     py[i] = (int)random(300);
@@ -107,7 +107,7 @@ void draw() {
     if (isFire) {
       print("py[0]="+py[0]);
       fill(255, 0, 0);
-      circle(bx + 20, by - 30, 10);  //mouseX會使子彈亂跑
+      ellipse(bx + 20, by - 30, 10, 10);  //mouseX會使子彈亂跑
       by = by - 10;
       if (by < 0) {
         bx = mouseX;
